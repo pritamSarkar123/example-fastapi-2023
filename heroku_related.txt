@@ -1,0 +1,40 @@
+create heroku accoung -> login 
+
+goto : https://devcenter.heroku.com/articles/getting-started-with-python
+
+heroku cli install in local system 
+
+heroku --version
+
+heroku login
+
+heroku create --help 
+
+// app create with name
+heroku create fastapi-pritam-example-2023
+
+// ************ heroku is no longer free -_- fuck app
+
+check the app created in dashboard 
+
+
+// git remote 
+    heroku 
+    origin 
+
+so 
+git push heroku main 
+
+
+after some time heroku will give some url 
+
+https://fastapi-pritam-example-2023.herokuapp.com
+// will get some error 
+
+--port=${PORT:-5000}
+
+${PORT} <- environment variable PORT value, 
+set by heroku.
+ :-5000 , if not set then, default val 5000
+
+ 
