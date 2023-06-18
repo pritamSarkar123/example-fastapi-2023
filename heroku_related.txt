@@ -37,4 +37,78 @@ ${PORT} <- environment variable PORT value,
 set by heroku.
  :-5000 , if not set then, default val 5000
 
- 
+git push origin main 
+git push heroku main 
+
+// still the app will not work 
+
+to see the logs 
+heroku logs --help
+
+
+// heroku logs -t 
+it will show the tail of the log 
+
+ctrl + c 
+
+// hobby-dev free tire plan
+heroku addons:create heroku-postgresql:hobby-dev
+
+
+go to app dashboard -> installed addons postgres -> settings 
+-> creds
+
+
+** heroku calls its instances dianos
+
+
+go to app dashboard -> settings -> config vars 
+// add all the env var and values
+
+-> hide config vars 
+
+
+// as app do not have restart options
+heroku ps:restart
+
+
+// to get the url and app info 
+
+heroku app:info <app_name>
+heroku app:info fastapi-pritam-example-2023
+
+// but we can see sql errors
+// to deal with it 
+// connect the remote heroku pg db to local pg server
+
+// servers -> create -> name give -> creds -> connect
+
+
+// adding alembic magic in dev db 
+// we added all alem bif folder and files in heroku 
+// vvvvi *** we will never "alembic revision" in production server
+// we always do the revision in the dev mode and push the changes in prod 
+// then only do alembic upgrade head / alembic upgrade revision_no 
+
+
+// how to run the alembic/other commands form local cli for heroku ?
+
+
+// upgrade to head , including all the incremental changes 
+
+heroku run "alembic upgrade head" 
+
+// good practice 
+// restart your entire heroku instance 
+heroku ps:restart 
+
+
+// now how to push changes of app code into heroku(or prod)?
+
+// git add .
+// git commit -m "message"
+// git push origin main 
+// git push heroku main <<<- we will get heroku with origin, if the app creates
+// heroku ps:restart 
+
+to reflect db changes, use alembic method
